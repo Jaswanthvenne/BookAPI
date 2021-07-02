@@ -8,6 +8,11 @@ const mongoose = require("mongoose");
 //database
 const database = require("./database/index");
 
+//Modelsq
+const BookModels = require("./database/book");
+const AuthorModels = require("./database/author");
+const PublicationModels = require("./database/publication");
+
 //Initializing express
 const shapeAI = express();
 
@@ -18,7 +23,7 @@ shapeAI.use(express.json());
 mongoose.connect(process.env.MONGO_URL,{
   useNewUrlParser: true,
   useUnifiedTopology:true,
-  useFindAndModify: false,
+  useFindAndModify: false,  
 })
 mongoose.connection.on('connected',()=>{
   console.log("Connected to MongoDB")
